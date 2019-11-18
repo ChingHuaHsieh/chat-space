@@ -62,7 +62,7 @@ Things you may want to cover:
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
+|text|text|
 |img|string|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
