@@ -32,9 +32,9 @@ Things you may want to cover:
 |password|string|null: false|
 
 ### Association
-han_many :groups_users
-han_many :groups, through: :groups_users
-han_many :comments
+- han_many :groups_users
+- han_many :groups, through: :groups_users
+- han_many :comments
 
 
 ## groups_usersテーブル
@@ -55,9 +55,9 @@ han_many :comments
 |name|string|null: false|
 
 ### Association
-han_many :groups_users
-han_many :users, through: :groups_users
-han_many :comments
+- han_many :groups_users
+- han_many :users, through: :groups_users
+- han_many :comments
 
 ## commentsテーブル
 |Column|Type|Options|
