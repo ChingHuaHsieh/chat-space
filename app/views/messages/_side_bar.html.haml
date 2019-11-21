@@ -2,13 +2,14 @@
   %div.chat-side
     %div.side-header
       %div.side-header__box
-        %p.side-header__box__user-name USER NAME
+        %p.side-header__box__user-name
+          = current_user.name
         %ul.side-header__box__menu
           %li.side-header__box__menu__newgroup
             = link_to "#" do
               %i.far.fa-edit
           %li.side-header__box__menu__edit-user
-            = link_to "#" do
+            = link_to edit_user_path(current_user) do
               %i.fas.fa-cog
     %div.groups
       %div.group
