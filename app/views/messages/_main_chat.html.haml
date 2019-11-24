@@ -3,24 +3,21 @@
     %div.main-header
       %div.main-header__left-box
         %h2.main-header__left-box__current-group
-          CURRENT GROUP
+          = @group.name
         %ul.main-header__left-box__menber-list
           MENBER :
           %li.main-header__left-box__menber-list__menber
-            menber1
-      = link_to "#" do
+            - @group.users.each do |user|
+              = user.name
+      = link_to edit_group_path(@group) do
         %div.main-header__edit-btn Edit
     %div.messages
-      %div.message
-        %div.message__upper-info
-          %p.message__upper-info__talker USER NAME
-          %p.message__upper-info__date 0000/00/00(Wed) 00:00:00
-        %p.message__text USER MESSAGE
-    %div.form
-      %form.new__message
-        %div.input-box
-          %input.input-box__text{type: 'text', value: '',name: 'message[content]', placeholder: 'type a message'}
-          %label{class: "input-box__image"}
-            %i.fa.fa-image
-            %input{type: "file"}
-        %input.submit-btn{type: 'submit', value: 'Send',name: 'commit'}
+      = render partial: 'message', collection: @messages
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
