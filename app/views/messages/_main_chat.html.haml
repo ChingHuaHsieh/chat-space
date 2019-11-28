@@ -8,7 +8,7 @@
           MENBER :
           %li.main-header__left-box__menber-list__menber
             - @group.users.each do |user|
-              = user.name
+              = user.name + "さん"
       = link_to edit_group_path(@group) do
         %div.main-header__edit-btn Edit
     %div.messages
