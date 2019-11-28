@@ -1,6 +1,7 @@
 $(function(){
 function buildHTML(message) {
-  if (message.image) {
+  var content = message.content ? `${ message.content }` : "";
+  var img = message.image ? `<img class="message__text__image" src='${message.image}' alt="">` : "";
     var html = `<div class="message">
                   <div class="message__upper-info">
                     <p class="message__upper-info__talker">
@@ -12,28 +13,11 @@ function buildHTML(message) {
                   </div>
                   <div class="message__text">
                     <p class="message__text__content">
-                      ${message.content}
+                      ${content}
                     </p>
-                    <img class="message__text__image" src='${message.image}' alt="">
+                    ${img}
                   </div>
                 </div>`
-  } else {
-    var html = `<div class="message">
-                  <div class="message__upper-info">
-                    <p class="message__upper-info__talker">
-                      ${message.user_name}
-                    </p>
-                    <p class="message__upper-info__date">
-                      ${message.date}
-                    </p>
-                  </div>
-                  <div class="message__text">
-                    <p class="message__text__content">
-                      ${message.content}
-                    </p>
-                  </div>
-                </div>`
-  }
   return html;
 }
   $('#new_message').on('submit', function(e){
