@@ -20,6 +20,11 @@ $(function(){
                   </div>`
     return html;
   }
+
+  function scrollFunction () {
+    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+  };
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -36,7 +41,7 @@ $(function(){
       var html = buildHTML(message);
       $('.messages').append(html);
       $('#new_message')[0].reset();
-      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      scrollFunction();
     })
     .fail(function() {
       alert('error');
@@ -61,8 +66,8 @@ $(function(){
         $.each(messages, function(i, message) {
           insertHTML += buildHTML(message)
         });
+        scrollFunction();
         $('.messages').append(insertHTML);
-        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       })
       .fail(function() {
         alert('error');
