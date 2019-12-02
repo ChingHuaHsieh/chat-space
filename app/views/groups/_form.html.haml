@@ -41,11 +41,3 @@
     .chat-group-form__field--left
     .chat-group-form__field--right
       = f.submit class: 'chat-group-form__action-btn'
-
-      -# .chat-group-form__field--right
-      -# - @group.users.each do |user|
-      -#   .chat-group-user
-      -#     = user.name + "さん"
-      -#     - if current_user.id != user.id
-      -#       .user-search-add.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
-      -#         削除
