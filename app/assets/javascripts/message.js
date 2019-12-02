@@ -57,7 +57,6 @@ $(function(){
         dataType: 'json'
       })
       .done(function(messages) {
-        console.log(messages)
         var insertHTML = '';
         $.each(messages, function(i, message) {
           insertHTML += buildHTML(message)
